@@ -19,15 +19,16 @@ after_success:
   - docker push saharnab99/multidock-nginx
   - docker push saharnab99/multidock-server
   - docker push saharnab99/multidock-worker
-# deploy:
-#   provider: elasticbeanstalk
-#   region: "ap-south-1"
-#   app: "docker-aws"
-#   env: "DockerAws-env"
-#   bucket_name: "elasticbeanstalk-ap-south-1-024497252280"
-#   bucket_path: "multidock"
-#   on:
-#     branch: master
-#   access_key_id: $AWS_ACCESS_KEY
-#   secret_access_key:
-#     secure: $AWS_SECRET_KEY
+
+deploy:
+  provider: elasticbeanstalk
+  region: ap-south-1
+  app: multidock
+  env: Multidock-env
+  bucket_name: "elasticbeanstalk-ap-south-1-024497252280"
+  bucket_path: multidock
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
